@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JavaScript Functions</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+</head>
+
+<body>
+    <div class="row">
+        <div class="col s12">
+            <br>
+            <h1 class="center"> JavaScript In Action!</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <h3 class="center">Functions</h3>
+            <div class="row">
+                <div class="col s6">
+                    <button class="waves-effect waves-light btn" onclick="helloWorld('Mike')">Hello World!</button>
+                </div>
+                <div class="col s6">
+                    <button class="waves-effect waves-light btn" onclick="helloWorld('Enter your name!')">Hello World! (Fill this out)</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s6">
+                    <button class="waves-effect waves-light btn" id="date-event-listen">Click to get Date! (Event Listener)</button>
+                </div>
+                <div class="col s6">
+                    <button class="waves-effect waves-light btn" onclick="todaysDate()">Click to get Date! (onClick Event)</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <h3 class="center">Objects</h3>
+        <form class="col s6">
+            <h4 class=""> Using Javascript with forms!</h4>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="first_name" type="text" class="validate">
+                    <label for="first_name">First Name</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="last_name" type="text" class="validate">
+                    <label for="last_name">Last Name</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="track" type="text" class="validate">
+                    <label for="track">Track</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="career" type="text" class="validate">
+                    <label for="career">Dream Career</label>
+                </div>
+            </div>
+            <div class="row">
+                <a class="waves-effect waves-light btn" onclick="getInformation()">Submit</a>
+            </div>
+        </form>
+    </div>
+    <h3 id="introduction"></h3>
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.2.0.min.js" integrity="sha256-JAW99MJVpJBGcbzEuXk4Az05s/XyDdBomFqNlM3ic+I=" crossorigin="anonymous"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+    <!-- Functions Script -->
+    <script src="main.js"></script>
+</body>
+
+</html>
