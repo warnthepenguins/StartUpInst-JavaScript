@@ -75,7 +75,7 @@ function deleteFirstPerson(){
 
 function findPersonPostion(name){
 	var position = startUpInstituteStaff.indexOf(name);
-	console.log(name);
+	console.log(position);
 };
 
 
