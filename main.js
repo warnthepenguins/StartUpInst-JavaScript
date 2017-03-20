@@ -4,39 +4,92 @@
 
 // Function Taking in Parameters
 
-function helloWorld(name) {
-    alert('Hello World, my name is ' + name + '!');
-};
-
-// Self invoking function Function ***NEEDS FIXING, FIND THE BUG******
-(function() {
-    var intro = "Hello, my name is ",
-        name = "",
-        outro = ", and I just created an Annyomous Function";
-
-    //Check to make sure a name exsits 
-    if (name === "" || null || undefined) {
-        return
-    }
-    alert(intro + name + outro);
-    return;
-})();
-
-
-// Annoymous Function / Utility Function Example
-function todaysDate() {
-    var date = new Date();
-    alert('Today\'s date is: ' + date);
-    return;
-};
+// function helloWorld(name) {
+//     alert('Hello World, my name is ' + name + '!');
+// };
+//
+// // Self invoking function Function ***NEEDS FIXING, FIND THE BUG******
+// (function() {
+//     var intro = "Hello, my name is ",
+//         name = "",
+//         outro = ", and I just created an Annyomous Function";
+//
+//     //Check to make sure a name exsits
+//     if (name === "" || null || undefined) {
+//         return
+//     }
+//     alert(intro + name + outro);
+//     return;
+// })();
+//
+//
+// // Annoymous Function / Utility Function Example
+// function todaysDate() {
+//     var date = new Date();
+//     alert('Today\'s date is: ' + date);
+//     return;
+// };
 
 
 // Event Listener Example function
-var target = document.getElementById('date-event-listen');
+var mouseX = 0, mouseY = 0, scrollY = 0,
+    growAmount = 1;
+var obnoxiousTimeout = "unclicked";
+// var target = document.getElementById('date-event-listen');
+//
+// target.addEventListener("click", function() {
+//     todaysDate();
+// });
 
-target.addEventListener("click", function() {
-    todaysDate();
-});
+document.addEventListener("mousemove", function(theEvent) {
+  mouseX = theEvent.pageX - window.pageXOffset;
+  mouseY = theEvent.pageY - window.pageYOffset;
+  // console.log(mouseX, mouseY);
+})
+
+document.addEventListener("scroll", function(theEvent) {
+  // mouseX = window.pageXOffset;
+  scrollY = window.pageYOffset;
+  // console.log(mouseX, mouseY);
+})
+
+
+function stopHittingYourself() {
+  growAmount *= 1.125;
+  if (obnoxiousTimeout === "unclicked") {
+    document.getElementById("stop-hitting-yourself").innerHTML = "Stop hitting yourself.";
+    document.getElementById("stop-hitting-yourself").style.position = "absolute";
+    document.getElementById("stop-hitting-yourself").style.display = "none";
+    document.getElementById("stop-hitting-yourself").addEventListener('click', stopStopHittingYourself);
+    obnoxiousTimeout = setTimeout(stopHittingYourself, Math.random() * 3000 + 1000);
+    console.log(obnoxiousTimeout);
+  } else if (typeof obnoxiousTimeout === 'number') {
+    console.log("It's a number, displaying");
+    document.getElementById("stop-hitting-yourself").style.display = "block";
+    document.body.style.backgroundColor = "rgb(" + Math.floor(Math.random() * 256) + "," + Math.floor(Math.random() * 256) + "," + Math.floor(Math.random() * 256) + ")";
+    document.getElementById("stop-hitting-yourself").style.top = (mouseY + scrollY) + "px";
+    document.getElementById("stop-hitting-yourself").style.left = (mouseX) + "px";
+    setTimeout(function() {
+      document.getElementById("stop-hitting-yourself").focus();
+      // window.scrollTo(document.getElementById("stop-hitting-yourself").getBoundingClientRect().left, document.getElementById("stop-hitting-yourself").getBoundingClientRect().top);
+    }, 100);
+
+    document.getElementById("stop-hitting-yourself").style.transform = "scale(" + growAmount + ")";
+    obnoxiousTimeout = setTimeout(stopHittingYourself, Math.random() * 4000);
+    // console.log("Stop hitting yourself.");
+  } else if (obnoxiousTimeout === "stopped") {
+    obnoxiousTimeout = "unclicked";
+  }
+};
+
+function stopStopHittingYourself(theEvent) {
+  clearTimeout(obnoxiousTimeout);
+  obnoxiousTimeout = "stopped";
+  document.getElementById("stop-hitting-yourself").innerHTML = "okay. I'll do something else if you click me again.";
+  document.getElementById("stop-hitting-yourself").style.transform = "scale(1)";
+  theEvent.target.removeEventListener(theEvent.type, arguments.callee);
+  return;
+}
 
 /*////////////////////////////////////////////////////
                       ARRAYS
@@ -75,7 +128,7 @@ var arrayOfObjects = [{
     yearOfCompletion: 2016
 }];
 
-// Array of arrays 
+// Array of arrays
 var arrayOfArrays = [
     ["Mike", "McGrath"],
     ["Bob", "Designer"],
@@ -91,7 +144,7 @@ function mapOverArray() {
     });
 };
 
-//Working with Arrays 
+//Working with Arrays
 
 //Add an item to the end of the Array
 function addPerson(name) {
@@ -108,7 +161,7 @@ function deleteLastPerson() {
 // Remove the first Item in the Array
 function deleteFirstPerson() {
     var newArray = startUpInstituteStaff.shift();
-    startUpInstituteStaff = newArray
+    startUpInstituteStaff = newArray;
     console.log(startUpInstituteStaff);
 };
 
@@ -166,7 +219,7 @@ function addNewProperty(person, property, value) {
     console.log(person);
 };
 
-//Creating a new Person Object Constuctor 
+//Creating a new Person Object Constuctor
 function Person(firstName, lastName, age, occupation, company) {
     this.firstName = firstName;
     this.lastName = lastName;
