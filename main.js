@@ -15,7 +15,7 @@ function helloWorld(name){
     	outro = ", and I just created an Annyomous Function";
     
     //Check to make sure a name exsits 
-    if(name === "" || null || undefinded){
+    if(name === "" || null || undefined){
     	return
     }
  	alert(intro + name + outro);
@@ -94,7 +94,7 @@ var Mike = {
 },
 
 //Replicate the Above Format
-	You{
+	You = {
 	firstName: '',
 	lastName: '',
 	age: 00,
