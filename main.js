@@ -8,10 +8,10 @@ function helloWorld(name){
 	alert('Hello World, my name is ' + name + '!');
 };
 
-// Self invoking function Function
+// Self invoking function Function ***NEEDS FIXING, FIND THE BUG******
 (function () {
     var intro = "Hello, my name is ",
-    	name = "", // Fill in your name here
+    	name = "", 
     	outro = ", and I just created an Annyomous Function";
     
     //Check to make sure a name exsits 
@@ -40,6 +40,10 @@ target.addEventListener("click", function(){
 
 /*////////////////////////////////////////////////////
                       ARRAYS
+
+                  CODEPEN EXAMPLE:
+      http://codepen.io/mmcgrath2010/pen/rypXwX
+
 ////////////////////////////////////////////////////*/
 
 var startUpInstituteStaff = ["Rich", "David", 
@@ -54,7 +58,7 @@ startUpInstituteStaff.forEach(function(item, array) {
 
 //Add an item to the end of the Array
 function addPerson(name){
-startUpInstituteStaff.push("My name");
+startUpInstituteStaff.push(name);
 console.log(startUpInstituteStaff.length);
 }
 
@@ -81,10 +85,15 @@ function findPersonPostion(name){
 
 /*////////////////////////////////////////////////////
                       OBJECTS
+
+                CODE PEN EXAMPLE:
+    http://codepen.io/mmcgrath2010/pen/dvJxRO
+
 ////////////////////////////////////////////////////*/
 
-//Declaring an Object
 
+
+//Declaring an Object
 var Mike = {
 	firstName: 'Mike',
 	lastName: 'McGrath',
@@ -121,6 +130,7 @@ function addNewProperty(person, property, value){
                    OBJECTS ADVANCED
 ////////////////////////////////////////////////////*/
 
+// HOW CAN WE USE THE INFORMATION FROM getInformtion() to call introdution()??????
 
 
 //Function that collects data from a form with an optional callback
@@ -135,7 +145,7 @@ function getInformation(callback){
 	if(!callback){
 		return
 	}
-	callback(data); // Calling the text function
+	callback(data); // Calling the next function
 };
 
 // Using an Object inside a function
